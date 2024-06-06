@@ -19,6 +19,34 @@ namespace Prog122_L15_Final_Review
         public MainWindow()
         {
             InitializeComponent();
+            lvProducts.ItemsSource = Data.AmazonPoducts;
+        }
+
+        private void btnAddNewProduct_Click(object sender, RoutedEventArgs e)
+        {
+            //Open up an new window for a button click you have to create a new instance of the window then do .Show() on it
+            new ProductEntry().Show();
+        }
+
+        private void lvProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Product selectedProduct = lvProducts.SelectedItem as Product;
+            if (selectedProduct != null)
+            {
+                rtbProduct.Document = selectedProduct.FormattedProdcutPost();
+                imgProduct.Source = selectedProduct.Image;
+
+            }
+
+            
         }
     }
 }
+
+
+//Rich Text Box ( Advanced )
+//List View ( Plus Click Event )
+//Image
+//Button
+
+
