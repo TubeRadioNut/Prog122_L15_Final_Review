@@ -1,0 +1,208 @@
+﻿<Window
+    x:Class="Prog122_L15_Final_Review.EditProduct"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Prog122_L15_Final_Review"
+    mc:Ignorable="d"
+    Title="EditProduct"
+    Height="450"
+    Width="800">
+    <Canvas
+        x:Name="cnvEdit"
+        Background="#FF8298B1">
+        <ListView
+            x:Name="lvProducts"
+            Height="129"
+            Width="375"
+            d:ItemsSource="{d:SampleData ItemCount=5}"
+            Canvas.Left="405"
+            Canvas.Top="10"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            SelectionChanged="lvProducts_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        x:Name="rvcName"
+                        Header="Name"
+                        DisplayMemberBinding="{Binding Name}"
+                        Width="100" />
+                    <GridViewColumn
+                        Header="Manufacturer"
+                        DisplayMemberBinding="{Binding Manufacturer}" />
+                    <GridViewColumn
+                        Header="Date"
+                        DisplayMemberBinding="{Binding DateListed}" />
+                    <GridViewColumn
+                        Header="Catagory"
+                        DisplayMemberBinding="{Binding Categories1}" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Image
+            x:Name="imgTempImage"
+            Height="196"
+            Canvas.Left="449"
+            Canvas.Top="157"
+            Width="278"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Canvas
+            x:Name="cnvEditControls"
+            Height="389"
+            Width="374"
+            Canvas.Left="24"
+            Canvas.Top="19"
+            Background="#FF4B4545"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <TextBox
+                x:Name="txtEditName"
+                Canvas.Left="174"
+                TextWrapping="Wrap"
+                Canvas.Top="42"
+                Width="182"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+            <TextBox
+                x:Name="txtEditManufacturer"
+                Canvas.Left="174"
+                TextWrapping="Wrap"
+                Canvas.Top="75"
+                Width="182"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" />
+            <TextBox
+                x:Name="txtEditPrice"
+                Canvas.Left="174"
+                TextWrapping="Wrap"
+                Canvas.Top="107"
+                Width="182"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" />
+            <ComboBox
+                x:Name="cmbEditDate"
+                Canvas.Left="236"
+                Canvas.Top="142"
+                Width="120" />
+            <Button
+                x:Name="btnEditName"
+                Content="Edit Name"
+                Canvas.Left="56"
+                Canvas.Top="42"
+                Click="btnEditName_Click" />
+            <Button
+                x:Name="btnEditManufacturer"
+                Content="Edit Manufacturer"
+                Canvas.Left="56"
+                Canvas.Top="69"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Click="btnEditManufacturer_Click" />
+            <Button
+                x:Name="btnEditPrice"
+                Content="Edit Price"
+                Canvas.Left="56"
+                Canvas.Top="105"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Click="btnEditPrice_Click" />
+            <Button
+                x:Name="btnEditDate"
+                Content="Edit Date"
+                Canvas.Left="172"
+                Canvas.Top="143"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="btnEditDate_Click" />
+            <Button
+                x:Name="btnEditDescription"
+                Content="Edit Description"
+                Canvas.Left="38"
+                Canvas.Top="158"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnEditDescription_Click" />
+            <RichTextBox
+                x:Name="rtbEditProduct"
+                Height="56"
+                Width="318"
+                Canvas.Left="38"
+                Canvas.Top="183"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run
+                            x:Name="runEditDescription"
+                            Text="" />
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Button
+                x:Name="btnEditImgPath"
+                Content="Edit Image Path"
+                Canvas.Left="39"
+                Canvas.Top="244"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Click="btnEditImgPath_Click" />
+            <TextBox
+                x:Name="txtEditImagePath"
+                Canvas.Left="135"
+                TextWrapping="Wrap"
+                Canvas.Top="244"
+                Width="219"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" />
+            <RadioButton
+                x:Name="rbPetSupplies"
+                Content="Pet Supplies"
+                Canvas.Left="139"
+                Canvas.Top="305"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" />
+            <RadioButton
+                x:Name="rbFregrance"
+                Content="Fragrance"
+                Canvas.Left="139"
+                Canvas.Top="325"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" />
+            <RadioButton
+                x:Name="rbTech"
+                Content="Tech"
+                Canvas.Left="139"
+                Canvas.Top="345"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" />
+            <Button
+                x:Name="btnEditCatagory"
+                Content="Edit Catagory"
+                Canvas.Left="50"
+                Canvas.Top="302"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Click="btnEditCatagory_Click" />
+        </Canvas>
+        <Button
+            x:Name="btnOpenMain"
+            Content="Open Main Window"
+            Canvas.Left="646"
+            Canvas.Top="388"
+            Click="btnOpenMain_Click" />
+        <Button
+            x:Name="btnOpenProductEntry"
+            Content="Add New Product"
+            Canvas.Left="459"
+            Canvas.Top="388"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Width="113"
+            Click="btnOpenProductEntry_Click" />
+
+    </Canvas>
+</Window>

@@ -43,6 +43,7 @@ namespace Prog122_L15_Final_Review
 
             Product tempProduct = new Product(name,description,manu,price,filePath,date,category);
             Data.AddProduct(tempProduct);
+            
 
         }
 
@@ -72,7 +73,7 @@ namespace Prog122_L15_Final_Review
             //File Picker
             OpenFileDialog filePicker = new OpenFileDialog();
             //display is drop down | Filter by format
-            filePicker.Filter = "Image (*.png, *.jpeg, *.jpg)|*.png;*.jpeg;*.jpg";
+            filePicker.Filter = "Image (*.png, *.jpeg, *.jpg, *.webp)|*.png;*.jpeg;*.jpg;*.webp;";
 
             //Use an if to check if the user pick a file and said ok
             if(filePicker.ShowDialog() == true )
@@ -84,6 +85,20 @@ namespace Prog122_L15_Final_Review
 
                 imgTempImage.Source = newImage;
             }
+        }
+
+        private void btnOpenMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            bool mainWindowIsOpen = Application.Current.MainWindow == null;
+            if (mainWindowIsOpen)
+            {
+                new MainWindow().Show();
+            }
+            else
+            {
+                MessageBox.Show("MainWindow is open already");
+            }
+            
         }
     }
 }

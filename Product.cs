@@ -9,6 +9,7 @@ using System.Web;
 using System.Windows.Media.Imaging;
 using System.Windows.Documents;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Prog122_L15_Final_Review
 {
@@ -60,13 +61,18 @@ namespace Prog122_L15_Final_Review
         public FlowDocument FormattedProdcutPost()
         {
             FlowDocument fullDoc = new FlowDocument();
-            fullDoc.Blocks.Add(name_Formatted());
+            fullDoc.Blocks.Add(Name_Formatted());
+            fullDoc.Blocks.Add(Description_Formatted());
+            fullDoc.Blocks.Add(Manufacturer_Formatted());
+            fullDoc.Blocks.Add(Price_Formatted());
+            fullDoc.Blocks.Add(Date_Formatted());
+            fullDoc.Blocks.Add(Catagories_Fomatted());
             return fullDoc;
         }
 
-        //private Run Date_Formatted() // Format Date YEAR ONLY ( size, font Family ) Option: Color, Weight
-
-        private Paragraph name_Formatted()
+        
+        //private Paragraph name_Formatted() // Format header ( size, font Family ) Option: Color, Weight
+        private Paragraph Name_Formatted()
         {
             Paragraph para = new Paragraph();   
             Run run = new Run(_name);
@@ -76,11 +82,56 @@ namespace Prog122_L15_Final_Review
 
             return para;
         }
-        //private Run Header_Formatted() // Format header ( size, font Family ) Option: Color, Weight
-
-        //private Run Artist_Formatted() // Format artist( size, font Family ) Option: Color, Weight
-
-        //private Run Body_Formatted() // Format body( size, font Family ) Option: Color, Weight
+        
+        //private Paragraph Description_Formatted() // Format artist( size, font Family ) Option: Color, Weight
+        private Paragraph Description_Formatted()
+        {
+            Paragraph para = new Paragraph();
+            Run run = new Run(_description);
+            run.FontSize = 14;
+            run.FontStyle = FontStyles.Italic;
+            para.Inlines.Add(run);
+            return para;
+        }
+        
+        //private Paragraph Manufacturer_Formatted() // Format manufacturer( font size, font family) option: color, weight
+        private Paragraph Manufacturer_Formatted()
+        {
+            Paragraph para = new Paragraph();
+            Run run = new Run(_manufacturer);
+            run.FontSize = 14;
+            para.Inlines.Add(run);
+            return para;
+        }
+        //private Paragraph Price_Formattred() // Format price (money $, font size, font Famnly) option: color, weight
+        private Paragraph Price_Formatted()
+        {
+            Paragraph para = new Paragraph();
+            Run run = new Run(_price.ToString("C"));
+            run.FontSize = 14;
+            para.Inlines.Add(run);
+            return para;
+        }
+        //private Paragraph Date_Formatted() // Format datelisted ( size, font Family ) Option: Color, Weight
+        private Paragraph Date_Formatted()
+        {
+            Paragraph para = new Paragraph();
+            Run run = new Run(_dateListed.ToString());
+            run.FontSize = 8;
+            run.FontWeight = FontWeights.Bold;
+            para.Inlines.Add(run);
+            return para;
+        }
+        //private Paragraph Catagories_Formatted() // Format catagories( size, font Family ) Option: Color, Weight
+        private Paragraph Catagories_Fomatted()
+        {
+            Paragraph para = new Paragraph();
+            Run run = new Run(_categories.ToString());
+            run.FontSize = 16;
+            run.FontWeight = FontWeights.Bold;
+            para.Inlines.Add(run);
+            return para;
+        }
         //Product
         //Image
         //Name

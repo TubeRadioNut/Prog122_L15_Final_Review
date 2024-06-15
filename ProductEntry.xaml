@@ -21,8 +21,10 @@
             VerticalAlignment="Center">
             <Label
                 Content="Name"
-                Canvas.Left="50"
-                Canvas.Top="10" />
+                Canvas.Left="56"
+                Canvas.Top="23"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" />
             <Label
                 Content="Manufactuer"
                 Canvas.Left="50"
@@ -51,7 +53,7 @@
                 x:Name="txtName"
                 Canvas.Left="145"
                 TextWrapping="Wrap"
-                Canvas.Top="23"
+                Canvas.Top="27"
                 Width="181"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top" />
@@ -90,7 +92,7 @@
                     <Paragraph>
                         <Run
                             x:Name="runDescription"
-                            Text="RichTextBox" />
+                            Text="" />
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>
@@ -142,12 +144,21 @@
         </Canvas>
         <Image
             x:Name="imgTempImage"
-            Height="355"
+            Height="305"
             Canvas.Left="452"
             Canvas.Top="32"
-            Width="294"
+            Width="289"
             HorizontalAlignment="Left"
             VerticalAlignment="Top" />
+        <Button
+            x:Name="btnOpenMainWindow"
+            Content="Open Main Window"
+            Canvas.Left="526"
+            Canvas.Top="364"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Width="167"
+            Click="btnOpenMainWindow_Click" />
 
     </Canvas>
 </Window>
